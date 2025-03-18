@@ -68,14 +68,14 @@ export default {
         nombre: '',
         apellidos: '',
         dni: '',
-        cursos: [''],
+        cursos: [],
         estado: 'activo'
       }
     }
   },
   methods: {
     addCurso() {
-      this.teacher.cursos.push('')
+      this.teacher.cursos.push('ingrese un curso')
     },
     removeCurso(index) {
       this.teacher.cursos.splice(index, 1)

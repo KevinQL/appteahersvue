@@ -69,6 +69,7 @@ th, td {
 th {
   background-color: #f5f5f5;
   font-weight: bold;
+  color: #333;
 }
 
 .cursos-list {
