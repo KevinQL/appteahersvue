@@ -87,16 +87,15 @@ th {
   border-radius: 4px;
   font-size: 0.9em;
   text-transform: capitalize;
+  color: white;
 }
 
 .estado-badge.activo {
   background-color: #4CAF50;
-  color: white;
 }
 
 .estado-badge.inactivo {
   background-color: #f44336;
-  color: white;
 }
 
 .no-teachers {
