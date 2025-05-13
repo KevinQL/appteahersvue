@@ -9,10 +9,11 @@
           <th>DNI</th>
           <th>Cursos</th>
           <th>Estado</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="teacher in teachers" :key="teacher.dni">
+        <tr v-for="teacher in teachers" :key="teacher.id">
           <td>{{ teacher.nombre }}</td>
           <td>{{ teacher.apellidos }}</td>
           <td>{{ teacher.dni }}</td>
@@ -28,6 +29,11 @@
               {{ teacher.estado }}
             </span>
           </td>
+          <td>
+            <button @click="deleteTeacher(teacher.id)" class="btn-delete">
+              Eliminar
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -42,6 +48,13 @@ export default {
     teachers: {
       type: Array,
       required: true
+    }
+  },
+  methods: {
+    deleteTeacher(id) {
+      if (confirm('¿Estás seguro de que deseas eliminar este docente?')) {
+        this.$emit('delete-teacher', id)
+      }
     }
   }
 }
@@ -103,5 +116,18 @@ th {
   color: #666;
   font-style: italic;
   margin-top: 20px;
+}
+
+.btn-delete {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-delete:hover {
+  background-color: #d32f2f;
 }
 </style> 
