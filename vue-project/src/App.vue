@@ -11,18 +11,14 @@ export default {
   },
   data() {
     return {
-      teachers: [],
-      dbStatus: false
+      teachers: []
     }
   },
   async created() {
     try {
-      // Intentar cargar los docentes para verificar la conexión
       await this.loadTeachers()
-      this.dbStatus = true
     } catch (error) {
       console.error('Error al inicializar la aplicación:', error)
-      this.dbStatus = false
     }
   },
   methods: {
@@ -58,12 +54,6 @@ export default {
   <div class="app">
     <header>
       <h1>Sistema de Gestión de Docentes</h1>
-      <div v-if="dbStatus" class="db-status success">
-        Conexión a la base de datos establecida
-      </div>
-      <div v-else class="db-status error">
-        Error de conexión a la base de datos
-      </div>
     </header>
     <main>
       <TeacherForm @submit-teacher="addTeacher" />
@@ -92,7 +82,7 @@ h1 {
 }
 
 main {
-  display: flex;
+    display: flex;
   flex-direction: column;
   gap: 40px;
 }
@@ -102,12 +92,12 @@ main {
   border-radius: 4px;
   margin-top: 10px;
   font-weight: bold;
-}
+  }
 
 .db-status.success {
   background-color: #4CAF50;
   color: white;
-}
+  }
 
 .db-status.error {
   background-color: #f44336;
