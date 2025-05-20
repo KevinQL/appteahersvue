@@ -63,8 +63,35 @@ export default {
 </template>
 
 <style>
+:root {
+  --primary-color: #006de9;
+  --primary-dark: #1976D2;
+  --primary-light: #BBDEFB;
+  --accent-color: #FF4081;
+  --text-primary: #212121;
+  --text-secondary: #757575;
+  --background-color: #F5F5F5;
+  --card-background: #FFFFFF;
+  --error-color: #f44336;
+  --success-color: #4CAF50;
+  --border-radius: 8px;
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
 .app {
-  font-family: Arial, sans-serif;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
@@ -73,18 +100,45 @@ export default {
 header {
   text-align: center;
   margin-bottom: 40px;
+  padding: 20px;
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
 }
 
 h1 {
-  color: #2196F3;
+  color: var(--primary-color);
   margin: 0;
-  padding: 20px 0;
+  font-size: 2.5rem;
+  font-weight: 600;
 }
 
 main {
-    display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 40px;
+}
+
+@media (min-width: 1024px) {
+  main {
+    grid-template-columns: 350px 1fr;
+  }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main > * {
+  animation: fadeIn 0.5s ease-out;
 }
 
 .db-status {
@@ -92,15 +146,15 @@ main {
   border-radius: 4px;
   margin-top: 10px;
   font-weight: bold;
-  }
+}
 
 .db-status.success {
-  background-color: #4CAF50;
+  background-color: var(--success-color);
   color: white;
-  }
+}
 
 .db-status.error {
-  background-color: #f44336;
+  background-color: var(--error-color);
   color: white;
 }
 </style>
